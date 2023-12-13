@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -10,7 +10,7 @@ import FavoriteDestinations from "./components/FavoriteDestinations";
 import Map from "./components/Map";
 import { AuthProvider } from "./context/AuthContext";
 import { AppProvider } from "./context/AppContext";
-import Navbar from "./components/NavBar";
+
 import Dashboard from "./components/Dashboard";
 
 function App() {
@@ -18,7 +18,6 @@ function App() {
     <Router>
       <AuthProvider>
         <AppProvider>
-          <Navbar />
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/login" Component={Login} />
@@ -27,9 +26,9 @@ function App() {
             <Route
               path="/dashboard"
               element={
-                // <PrivateRoute>
-                <Dashboard />
-                // </PrivateRoute>
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
               }
             />
           </Routes>

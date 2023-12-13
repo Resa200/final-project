@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 
 const NavBar = () => {
-  const { token, logout } = useAuthContext();
+  const { logout } = useAuthContext();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -18,7 +18,7 @@ const NavBar = () => {
         <li>
           <Link to="/">Home</Link>
         </li>
-        {token ? (
+        {/* {token ? (
           <>
             <li>
               <Link to="/dashboard">Dashboard</Link>
@@ -36,7 +36,13 @@ const NavBar = () => {
               <Link to="/register">Register</Link>
             </li>
           </>
-        )}
+        )} */}
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+        <li>
+          <button onClick={handleLogout}>Logout</button>
+        </li>
       </ul>
     </nav>
   );
