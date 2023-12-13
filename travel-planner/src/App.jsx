@@ -15,9 +15,9 @@ import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
-    <Router>
-      <AuthProvider>
-        <AppProvider>
+    <AuthProvider>
+      <AppProvider>
+        <Router>
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/login" Component={Login} />
@@ -32,9 +32,9 @@ function App() {
               }
             />
           </Routes>
-        </AppProvider>
-      </AuthProvider>
-    </Router>
+        </Router>
+      </AppProvider>
+    </AuthProvider>
   );
 }
 
